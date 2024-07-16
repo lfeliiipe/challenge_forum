@@ -1,9 +1,6 @@
 package br.com.alura.forum.controller;
 
-import br.com.alura.forum.topico.DadosCadastroTopico;
-import br.com.alura.forum.topico.DadosListagemTopico;
-import br.com.alura.forum.topico.Topico;
-import br.com.alura.forum.topico.TopicoRepository;
+import br.com.alura.forum.topico.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -35,6 +32,12 @@ public class TopicoController {
             @RequestParam(value = "order", defaultValue = "ASC") String order) {
         var page = repository.findAllByTopicoAtivoTrue(paginacao).map(DadosListagemTopico::new);
         return ResponseEntity.ok(page);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity detalhar(@PathVariable Long id) {
+        var topico = repository.getReferenceById(id);
+        return ResponseEntity.ok(new DadosDetalhamentoTopico(topico));
     }
 
 
