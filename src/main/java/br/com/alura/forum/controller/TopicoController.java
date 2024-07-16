@@ -36,8 +36,11 @@ public class TopicoController {
 
     @GetMapping("/{id}")
     public ResponseEntity detalhar(@PathVariable Long id) {
-        var topico = repository.getReferenceById(id);
-        return ResponseEntity.ok(new DadosDetalhamentoTopico(topico));
+        var topico = repository.findById(id);
+        if(topico.isPresent()) {
+            return ResponseEntity.ok(new DadosDetalhamentoTopico(topico.get()));
+        }
+        return ResponseEntity.notFound().build();
     }
 
     @PutMapping("/{id}")
@@ -47,6 +50,17 @@ public class TopicoController {
         if(topico.isPresent()) {
             topico.get().atualizarDados(dados);
             return ResponseEntity.ok(new DadosDetalhamentoTopico(topico.get()));
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity deletar(@PathVariable Long id) {
+        var topico = repository.findById(id);
+        if(topico.isPresent()) {
+            repository.deleteById(id);
+            return ResponseEntity.noContent().build();
         }
         return ResponseEntity.notFound().build();
     }
