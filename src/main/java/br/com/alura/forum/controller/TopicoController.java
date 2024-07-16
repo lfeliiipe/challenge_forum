@@ -40,5 +40,14 @@ public class TopicoController {
         return ResponseEntity.ok(new DadosDetalhamentoTopico(topico));
     }
 
-
+    @PutMapping("/{id}")
+    @Transactional
+    public ResponseEntity atualizar(@PathVariable Long id, @RequestBody @Valid DadosAtualizacaoTopico dados) {
+        var topico = repository.findById(id);
+        if(topico.isPresent()) {
+            topico.get().atualizarDados(dados);
+            return ResponseEntity.ok(new DadosDetalhamentoTopico(topico.get()));
+        }
+        return ResponseEntity.notFound().build();
+    }
 }
