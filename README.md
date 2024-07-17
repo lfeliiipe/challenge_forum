@@ -29,7 +29,11 @@ Há rotas de:
 * SpringDoc
 
 ## URLs de Documentação
-* /v3/api-docs                (Documentação em JSON)
-* /swagger-ui/index.html      (Documentação em HTML. Imagem abaixo.)
+
+Uma maneira de testar os endpoints da aplicação sem a necessidade de utilizar aplicativos como Postman, ou Insomnia é utilizando as urls de documentação a seguir:
+
+* server:port/context-path/v3/api-docs                (Documentação em JSON)
+* server:port/context-path/swagger-ui/index.html      (Documentação em HTML. Imagem abaixo.)
+* Exemplo: localhost:8080/swagger-ui/index.html
 
 <img width="100%" align=center src="https://github.com/user-attachments/assets/42ff58bd-3671-4dc5-8375-80ecd6693fc5">
