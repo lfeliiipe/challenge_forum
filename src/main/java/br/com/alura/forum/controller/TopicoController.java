@@ -1,6 +1,9 @@
 package br.com.alura.forum.controller;
 
-import br.com.alura.forum.topico.*;
+import br.com.alura.forum.domain.topico.DadosListagemTopico;
+import br.com.alura.forum.domain.topico.Topico;
+import br.com.alura.forum.domain.topico.TopicoRepository;
+import br.com.alura.forum.domain.topico.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

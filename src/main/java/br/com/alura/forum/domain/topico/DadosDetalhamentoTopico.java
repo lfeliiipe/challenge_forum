@@ -1,7 +1,6 @@
-package br.com.alura.forum.topico;
+package br.com.alura.forum.domain.topico;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.time.LocalDateTime;
 
