@@ -5,7 +5,7 @@
 
 # Fórum Hub Challenge
 
-Aplicação Spring Boot Web de uma API REST com autentição via JWT. 
+Aplicação Spring Boot Web de uma API REST com autenticação via JWT. 
 
 A aplicação permite o CRUD de tópicos de um fórum.
 
